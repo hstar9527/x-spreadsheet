@@ -5,6 +5,7 @@ module.exports = {
     "class-methods-use-this": "off",
     "no-restricted-syntax": ["error", "WithStatement"],
     "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "no-console": "off"
+    "no-console": "off",
+     'linebreak-style': ['error', 'windows'],
   },
 };
