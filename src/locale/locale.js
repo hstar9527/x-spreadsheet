@@ -1,10 +1,13 @@
 /* global window */
 import en from './en';
+import cn from './zh-cn';
 
 // Defines the fallback language as English
-let $languages = ['en'];
+// 原本默认是英文，改为中文，应该做成可配置
+let $languages = ['cn'];
 const $messages = {
   en,
+  cn,
 };
 
 function translate(key, messages) {
