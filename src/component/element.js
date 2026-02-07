@@ -22,7 +22,10 @@ class Element {
   on(eventNames, handler) {
     const [fen, ...oen] = eventNames.split('.');
     let eventName = fen;
-    if (eventName === 'mousewheel' && /Firefox/i.test(window.navigator.userAgent)) {
+    if (
+      eventName === 'mousewheel' &&
+      /Firefox/i.test(window.navigator.userAgent)
+    ) {
       eventName = 'DOMMouseScroll';
     }
     this.el.addEventListener(eventName, (evt) => {
@@ -50,9 +53,7 @@ class Element {
       });
       return this;
     }
-    const {
-      offsetTop, offsetLeft, offsetHeight, offsetWidth,
-    } = this.el;
+    const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = this.el;
     return {
       top: offsetTop,
       left: offsetLeft,
@@ -86,7 +87,7 @@ class Element {
     if (arguments.length === 0) {
       return this.el.childNodes;
     }
-    eles.forEach(ele => this.child(ele));
+    eles.forEach((ele) => this.child(ele));
     return this;
   }
 
@@ -231,7 +232,7 @@ class Element {
   }
 
   cssRemoveKeys(...keys) {
-    keys.forEach(k => this.el.style.removeProperty(k));
+    keys.forEach((k) => this.el.style.removeProperty(k));
     return this;
   }
 
@@ -239,6 +240,11 @@ class Element {
   // css( propertyName, value )
   // css( properties )
   css(name, value) {
+    // if (value === '1280px') {
+    //   debugger;
+    //   console.log('value :>> ', value);
+    // }
+
     if (value === undefined && typeof name !== 'string') {
       Object.keys(name).forEach((k) => {
         this.el.style[k] = name[k];
@@ -269,7 +275,4 @@ class Element {
 
 const h = (tag, className = '') => new Element(tag, className);
 
-export {
-  Element,
-  h,
-};
+export { Element, h };
